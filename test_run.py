@@ -11,7 +11,7 @@ def extract_exif_data(file_path):
     image_file = open(file_path,'rb').read()
     base64data = base64.b64encode(image_file).decode("utf8")
     file_name = get_file_name(file_path)
-    payload = {'image': base64data, 'file_path': file_name}
+    payload = {'image': base64data, 'file_name': file_name}
     r = requests.post("http://localhost:9000/2015-03-31/functions/function/invocations",json=payload)
     print(r.json())
     return r.json()

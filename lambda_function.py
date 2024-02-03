@@ -10,7 +10,8 @@ def handler(event, context):
         image = Image.open(img_byteIO)
         exif_data = image.getexif()
         
-        filename = image.filename if image.filename is not None else "Null"
+        # filename = image.filename if image.filename is not None else "Null"
+        filename = event['file_name']
         fileformat = image.format if image.format is not None else "Null"
         imagesize = image.size if image.size is not None else "Null"
         bitspersample = exif_data.get(258) if exif_data.get(258) is not None else "Null"
