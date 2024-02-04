@@ -25,3 +25,5 @@ def get_file_name(file_path):
     else:
         #If the file path is just the file name (in the root folder)
         return file_path
+    
+extract_exif_data('path/to file/')
