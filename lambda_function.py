@@ -57,13 +57,14 @@ def handler(event, context):
                 tagname = TAGS.get(key, key)
                 ifd1_info[tagname] = str(value)
             
+            exif_info.pop("MakerNote")
             metadata_dict = {
                 "ImageDetails": image_info,
                 "ExifData": exif_info,
                 "GPSInfo": gps_info,
                 "InteropData": interop_info,
                 "IFD1Data": ifd1_info,
-                "MakernoteData": makernote_info
+                # "MakernoteData": makernote_info
             }
 
         exif_json = json.dumps(metadata_dict, default=str)
